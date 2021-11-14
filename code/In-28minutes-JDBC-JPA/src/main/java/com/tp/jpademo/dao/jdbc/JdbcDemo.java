@@ -14,6 +14,9 @@ public class JdbcDemo {
 	@Autowired
 	StudentJdbcDAO studentJdbcDAO;
 	
+	@Autowired
+	StudentJdbcCustomRowMapperDAO customRowMapperDAO;
+	
 	private static Logger logger =LoggerFactory.getLogger(StudentJdbcDAO.class);
 	
 	public void demo() {
@@ -25,5 +28,9 @@ public class JdbcDemo {
 		
 		logger.info("Update 0 -> {}", 
 				studentJdbcDAO.update(new Student(0, "Pieter", "Utrecht", new Date())));
+		
+		
+		logger.info("All users -> {}", customRowMapperDAO.findAll());
+		logger.info("110 users -> {}", customRowMapperDAO.findById(110));
 	}
 }
