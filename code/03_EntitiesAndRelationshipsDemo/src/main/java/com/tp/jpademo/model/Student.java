@@ -4,6 +4,7 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -17,6 +18,9 @@ public class Student {
 	@Column(name = "stud_fullname",length = 30,nullable = false)
 	String fullName;
 
+	@OneToOne
+	private Passport passport;
+	
 	public Student() {
 		super();
 	}
@@ -46,6 +50,14 @@ public class Student {
 
 	public void setFullName(String fullName) {
 		this.fullName = fullName;
+	}
+
+	public Passport getPassport() {
+		return passport;
+	}
+
+	public void setPassport(Passport passport) {
+		this.passport = passport;
 	}
 
 	@Override
