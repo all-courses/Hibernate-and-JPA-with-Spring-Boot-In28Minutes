@@ -2,10 +2,26 @@ package com.tp.jpademo.classes;
 
 import java.util.Date;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name="student")
 public class StudentJava {
+	@Id
+	@GeneratedValue
+	@Column(name = "stud_id")
 	int id;
-	String fullName;
+	
+	@Column(name= "full_name")
+	String fullName;	
+	
 	String location;
+	
+	@Column(name =  "birth_date")
 	Date dob;
 	
 	public StudentJava() {
