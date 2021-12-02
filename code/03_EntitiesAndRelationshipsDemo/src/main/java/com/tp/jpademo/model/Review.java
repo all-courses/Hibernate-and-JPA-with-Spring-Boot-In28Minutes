@@ -4,6 +4,8 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -20,6 +22,10 @@ public class Review {
 	@Column(name = "studReview_description",length = 256)
 	String description;
 
+	@ManyToOne
+	@JoinColumn(name = "CourseId")
+	private Course course;
+	
 	public Review() {
 		super();
 	}
@@ -35,6 +41,14 @@ public class Review {
 		super();
 		this.rating = rating;
 		this.description = description;
+	}
+
+	public Course getCourse() {
+		return course;
+	}
+
+	public void setCourse(Course course) {
+		this.course = course;
 	}
 
 	public long getId() {
@@ -63,7 +77,7 @@ public class Review {
 
 	@Override
 	public String toString() {
-		return "Review [id=" + id + ", rating=" + rating + ", description=" + description + "]";
+		return "\n Review [id=" + id + ", rating=" + rating + ", description=" + description + "]";
 	}
 	
 }
