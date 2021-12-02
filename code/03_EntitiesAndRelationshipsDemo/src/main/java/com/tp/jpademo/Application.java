@@ -6,12 +6,15 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 import com.tp.jpademo.repository.StudentRepo;
+import com.tp.jpademo.service.EmployeeService;
 
 @SpringBootApplication
 public class Application implements CommandLineRunner{
 
 	@Autowired
 	StudentRepo studentRepo;
+	@Autowired
+	EmployeeService employeeService;
 	
 	public static void main(String[] args) {
 		SpringApplication.run(Application.class, args);
@@ -19,7 +22,8 @@ public class Application implements CommandLineRunner{
 
 	@Override
 	public void run(String... args) throws Exception {
-		studentRepo.startTesting();
+		//studentRepo.startTesting();
+		employeeService.testAll();
 	}
 
 }
