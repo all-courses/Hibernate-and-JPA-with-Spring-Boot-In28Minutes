@@ -1,14 +1,14 @@
 package com.tp.jpademo.model;
 
 import javax.persistence.Column;
-import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
+import javax.persistence.MappedSuperclass;
 
-@Entity
-@Inheritance(strategy = InheritanceType.JOINED)
+@Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
+@MappedSuperclass
 public abstract class Employee {
 	@Id
 	@GeneratedValue
@@ -21,7 +21,7 @@ public abstract class Employee {
 		super();
 	}
 
-	protected Employee(String fullName) {
+	public Employee(String fullName) {
 		super();
 		this.fullName = fullName;
 	}
